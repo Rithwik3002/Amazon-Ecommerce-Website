@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Amazon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: rgb(93, 197, 132);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .se{
+        display: flex;
+        justify-content: center;
+        height: 30px;
+    }
+
+    header {
+      background-color: rgb(213, 233, 141); /* Amazon primary color */
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .product-category {
+      margin-bottom: 40px;
+    }
+
+    .product-category h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ff9900; /* Amazon primary color */
+      padding-bottom: 10px;
+      
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+    }
+
+    .product {
+      width: calc(25% - 20px);
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      background-color: #f0f5f4;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333333;
+    }
+    .product p {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" style="width: 150px; margin-bottom: 20px;">
+      
+      <nav>
+        <a href="index.html">Register</a>
+        <a href="Home.html">Home</a>
+        
+      </nav>
+    </header>
+    <h1>Welcome to Amazon</h1>
+
+    <!-- Search Bar -->
+    <div class="se">
+<input type="text" id="searchInput" placeholder="Search products...">
+<button onclick="searchProducts()">Search</button>
+
+<!-- Dropdown Menu -->
+<select id="categorySelect">
+  <option value="">All Categories</option>
+  <option value="electronics">Electronics</option>
+  <option value="books">Books</option>
+  <!-- Add more categories as needed -->
+</select>
+
+<script>
+  function searchProducts() {
+    // Get the input value and convert it to lowercase for case-insensitive matching
+    var input = document.getElementById('searchInput').value.toLowerCase();
+    var category = document.getElementById('categorySelect').value;
+    var products = document.querySelectorAll('.product');
+
+    // Loop through all products
+    products.forEach(function(product) {
+      var productName = product.querySelector('h3').innerText.toLowerCase();
+      var productCategory = product.dataset.category;
+
+      // Check if the product name contains the search input and matches the selected category
+      if (productName.includes(input) && (!category || productCategory === category)) {
+        // If it matches, display the product
+        product.style.display = 'block';
+      } else {
+        // If it doesn't match, hide the product
+        product.style.display = 'none';
+      }
+    });
+  }
+</script>
+</div>
+  <style>
+    #searchContainer {
+      position: absolute;
+      right: 0;
+      /* Adjust the top and right values as needed */
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+  
+    <!-- Men's Clothing -->
+    <div class="product-category">
+      <h2>Men's Clothing</h2>
+      <div class="product-grid">
+        <!-- Men's Clothing Products -->
+        <div class="product">
+            <a href="product_details1.html?id=1">
+                <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops">
+                <h3>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h3>
+                <p>$109.95</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=2">
+                <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="Mens Casual Premium Slim Fit T-Shirts">
+                <h3>Mens Casual Premium Slim Fit T-Shirts</h3>
+                <p>$22.3</p>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=3">
+            <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="Mens Cotton Jacket">
+            <h3>Mens Cotton Jacket</h3>
+            <p>$55.99</p>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=4">
+                <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" alt="Mens Casual Slim Fit">
+                <h3>Mens Casual Slim Fit</h3>
+                <p>$15.99</p>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jewelry -->
+    <div class="product-category">
+      <h2>Jewelry</h2>
+      <div class="product-grid">
+        <!-- Jewelry Products -->
+        <div class="product">
+            <a href="product_details1.html?id=5">
+                <img src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" alt="John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet">
+                <h3>John Hardy Womens Legends Naga Gold & Silver Dragon Station Chain Bracelet</h3>
+                <p>$695</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=6">
+                <img src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg" alt="Solid Gold Petite Micropave">
+                <h3>Solid Gold Petite Micropave</h3>
+                <p>$168</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=7">
+                <img src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="White Gold Plated Princess">
+                <h3>White Gold Plated Princess</h3>
+                <p>$9.99</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=8">
+                <img src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg" alt="Pierced Owl Rose Gold Plated Stainless Steel Double">
+                <h3>Pierced Owl Rose Gold Plated Stainless Steel Double</h3>
+                <p>$10.99</p>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Women's Clothing -->
+    <div class="product-category">
+        <h2>Women's Clothing</h2>
+        <div class="product-grid">
+          <!-- Women's Clothing Products -->
+          <div class="product">
+            <a href="product_details1.html?id=9">
+                <img src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" alt="BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats">
+                <h3>BIYLACLESEN Womens 3-in-1 Snowboard Jacket Winter Coats</h3>
+                <p>$56.99</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=10">
+                <img src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg" alt="Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket">
+                <h3>Lock and Love Womens Removable Hooded Faux Leather Moto Biker Jacket</h3>
+                <p>$29.95</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=11">
+                <img src="https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg" alt="Rain Jacket Women Windbreaker Striped Climbing Raincoats">
+                <h3>Rain Jacket Women Windbreaker Striped Climbing Raincoats</h3>
+                <p>$39.99</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=12">
+                <img src="https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg" alt="MBJ Women's Solid Short Sleeve Boat Neck V">
+                <h3>MBJ Womens Solid Short Sleeve Boat Neck V</h3>
+                <p>$9.85</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=13">
+                <img src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg" alt="Opna Women's Short Sleeve Moisture">
+                <h3>Opna Womens Short Sleeve Moisture</h3>
+                <p>$7.95</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=14">
+                <img src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg" alt="DANVOUY Womens T Shirt Casual Cotton Short">
+                <h3>DANVOUY Womens T Shirt Casual Cotton Short</h3>
+                <p>$12.99</p>
+            </a>
+        </div>
+        </div>
+      </div>
+  
+      <!-- Electronics -->
+      <div class="product-category">
+        <h2>Electronics</h2>
+        <div class="product-grid">
+          <!-- Electronics Products -->
+          <div class="product">
+            <a href="product_details1.html?id=15">
+                <img src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" alt="WD 2TB Elements Portable External Hard Drive - USB 3.0">
+                <h3>WD 2TB Elements Portable External Hard Drive - USB 3.0</h3>
+                <p>$64</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=16">
+                <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s">
+                <h3>SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s</h3>
+                <p>$109</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=17">
+                <img src="https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg" alt="Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5">
+                <h3>Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5</h3>
+                <p>$109</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=18">
+                <img src="https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg" alt="WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive">
+                <h3>WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive</h3>
+                <p>$114</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=19">
+                <img src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg" alt="Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin">
+                <h3>Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin</h3>
+                <p>$599</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product_details1.html?id=20">
+                <img src="https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg" alt="Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED">
+                <h3>Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED</h3>
+                <p>$999.99</p>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
